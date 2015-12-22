@@ -1,0 +1,2 @@
+{"type":"warning","show":{"tags":false,"location":false,"time":false,"date":false},"context":{"tags":[],"file":false,"time":1450779889239,"location":{"filename":"app.js","line":14}},"args":{"0":"warn"},"contextString":"","argsString":"warn","message":"warn"}
+{"type":"warning","show":{"tags":false,"location":false,"time":false,"date":false},"context":{"tags":[],"file":false,"time":1450779913866,"location":{"filename":"app.js","line":14}},"args":{"0":"warn"},"contextString":"","argsString":"warn","message":"warn"}
