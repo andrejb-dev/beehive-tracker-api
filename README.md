@@ -1,6 +1,6 @@
 # beehive-tracker-api
 
-Rest api services for storing and accessing data from beehive tracker app.
+Rest api services for storing and accessing data from beehive tracker app. 
 
 ## Published resources
  + user
