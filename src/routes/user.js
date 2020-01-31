@@ -1,25 +1,11 @@
-module.exports = function attachHandlers (router) {
-    
-    // get requests
-    router.get('/users/:user_email', readUser);
-    
-    // post requests
-    router.post('/users', createUser);
-    
-    // put requests
-    //router.put('/api/supporters/:email/password', changeSupportersPassword);
-    
-};
+const controller = require('../controllers/user.controller');
 
-function readUser (req, res) {
-    //return res.json([ ... ]);
-    res.send('getting user..');
-    
-};
+module.exports.attachHandlers = (router) => {
 
-function createUser (req, res) {
-    
-    //return res.json([ ... ]);
-    res.send('creating user..');
-    
+    router.get('/users/:userEmail', controller.read);
+
+    router.route('/users')
+        .get(controller.readAll)
+        .post(controller.create);
+
 };
