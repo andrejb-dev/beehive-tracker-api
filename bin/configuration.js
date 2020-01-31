@@ -4,8 +4,7 @@ var express = require("express"),
     path = require("path"),
     application_root = path.resolve("."),
     bodyParser = require('body-parser'),
-    errorHandler = require('errorhandler'),
-    methodOverride = require('method-override');
+    errorHandler = require('errorhandler');
 
 module.exports.applyConfiguration = function (server) {
     console.log('Setting basic startup configuration...');
@@ -15,12 +14,12 @@ module.exports.applyConfiguration = function (server) {
     //server.use('/api/admin', admin);
     var publicPath = path.join(application_root, "public");
 
-    server.set('view engine', 'jade');
+    server.set('view engine', 'pug');
     server.set('views', publicPath);
     server.set('styles', path.join(publicPath, "stylesheets"));
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({extended: true}));
-    server.use(methodOverride());
+    // server.use(methodOverride());
     server.use('/', express.static(publicPath));
     server.use(errorHandler({ dumpExceptions: true, showStack: true }));
     
