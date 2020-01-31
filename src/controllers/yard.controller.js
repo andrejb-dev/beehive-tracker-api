@@ -1,5 +1,5 @@
 var db = require('../db/db');
-const log = require('./logger')(__filename.slice(__dirname.length + 1));
+const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
 module.exports = {
     create: function (req, res, next) {
