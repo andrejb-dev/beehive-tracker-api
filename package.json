@@ -12,6 +12,11 @@
     "email": "n/a",
     "url": "https://github.com/Zavael"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zavael/beehive-tracker-api.git"
+  },
   "homepage": "https://github.com/Zavael/beehive-tracker-api",
   "bugs": {
     "url": "https://github.com/Zavael/beehive-tracker-api/issues"
@@ -20,13 +25,13 @@
   "scripts": {
     "test": "echo Not defined",
     "start": "node app.js",
-    "debug": "set NODE_ENV=development && node ."
+    "debug": "set NODE_ENV=development&&node app.js"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "passport": "^0.4.1",
+    "pg-promise": "^10.4.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {},
