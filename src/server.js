@@ -2,7 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const log = require('./logger')(__filename.slice(__dirname.length + 1));
 
-module.exports.createServer = createServer;
+module.exports.createInstance = createServer;
 
 function createServer() {
     
