@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const db = pgp(process.env.DATABASE_URL || 'undefined db url');
+const db = pgp(process.env.DATABASE_URL || 'postgres://pgadmin:pgadmin@localhost:5432/testdb');
 const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
 db.one('Select version()')
