@@ -11,7 +11,7 @@ class logger{
                 message = JSON.stringify(message);
             };
             
-            console.log(new Date() + ` [${level.padStart(5)}] ${this.name} ${message}`, ...params);
+            console.log(new Date() + ` [${level.padStart(5)}] ${this.name}:${process.pid} ${message}`, ...params);
         }
     }
     debug(message, ...params) {
