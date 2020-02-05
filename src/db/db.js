@@ -1,13 +1,22 @@
 const pgp = require('pg-promise')();
-const db = pgp(process.env.DATABASE_URL || 'postgres://pgadmin:pgadmin@localhost:5432/testdb');
 const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
+// Database connection details;
+const cn = {
+    host: 'localhost', // 'localhost' is the default;
+    port: 5432, // 5432 is the default;
+    database: 'testdb',
+    user: 'postgres',
+    password: 'postgres'
+}
+
+const db = pgp(process.env.DATABASE_URL || cn);
 db.one('Select version()')
     .then(data => {
         log.info('Connected: ', data);
     })
     .catch(error => {
-        log.error(error);
+        log.error("Error connecting to db", error);
     });
 
 module.exports = {
@@ -15,8 +24,22 @@ module.exports = {
         log.debug('read ', table, id);
         return db.one('Select * from ' + table + ' where id = $1', id);
     },
+    executeScript: (file, callback) => {
+        const queries = new pgp.QueryFile(file);
+        db.any(queries)
+            .then(res => {
+                log.debug(`Executed script file ${file}: `, res);
+                if (callback) {
+                    callback();
+                }
+            })
+            .catch(err => {
+                log.error(`Error executing file ${file}`, err);
+            })
+    },
     hives: require('./db.hive')(db, log),
     yards: require('./db.yard')(db, log),
     inspections: require('./db.inspection')(db, log),
+    todos: require('./db.todo')(db, log),
     users: require('./db.user')(db, log)
 }
