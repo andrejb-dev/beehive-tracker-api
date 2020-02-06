@@ -8,8 +8,15 @@ INSERT INTO public.addresses(street, city, zip_code, gps_location)
 INSERT INTO public.environments(key)
 	VALUES ('urban'), ('agricultural'),	('natural');
 
-INSERT INTO public.yards(address_id)
-	VALUES (1), (2), (3), (4);
+INSERT INTO public.users(name, born, email, address_id)
+    VALUES
+    ('joseph123', '1990-03-15', 'joseph123@test.test', 1),
+    ('peter555', '1992-04-15', 'peter555@test.test', 2),
+    ('johnsnow', '1994-05-15', 'johnsnow@test.test', 3),
+    ('frodo-from-fellowship', '1996-06-15', 'frodo-from-fellowship@test.test', 4);
+
+INSERT INTO public.yards(user_id, address_id)
+	VALUES (1,1), (1,2), (1,3), (2,4);
 
 INSERT INTO public.yard_environments(
 	yard_id, environment_key)
