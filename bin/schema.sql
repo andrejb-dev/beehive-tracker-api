@@ -24,6 +24,7 @@ CREATE TABLE public.users (
     name text,
     born date,
     email text,
+    active BOOLEAN NOT NULL DEFAULT 'f',
     address_id integer REFERENCES addresses(id) ON DELETE SET NULL
 );
 
@@ -107,6 +108,8 @@ CREATE TABLE public.queens (
     accepted BOOLEAN,
     installed date,
     born date,
+    died date,
+    removed date,
     name text,
     note text
 );
