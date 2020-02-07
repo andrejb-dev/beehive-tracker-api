@@ -1,0 +1,1 @@
+INSERT INTO hives(${this:name}) VALUES (${this:list}) RETURNING *;

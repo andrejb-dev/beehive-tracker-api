@@ -1,0 +1,1 @@
+INSERT INTO todos(${this:name}) VALUES (${this:list});

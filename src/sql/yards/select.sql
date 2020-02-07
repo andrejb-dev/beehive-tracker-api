@@ -1,0 +1,1 @@
+SELECT * FROM yards WHERE id = ${id} and user_id = ${user_id};

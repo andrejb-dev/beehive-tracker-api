@@ -8,7 +8,7 @@ if (cluster.isMaster) {
 
     if (process.env.NODE_ENV !== 'production') {
         numCPUs = 1;
-        var db = require('./src/db/db');
+        const db = require('./src/db');
         db.executeScript('./bin/schema.sql', function () {
             db.executeScript('./bin/data.sql');
         });

@@ -1,0 +1,1 @@
+INSERT INTO yards(${this:name}) VALUES (${this:list}) RETURNING *;

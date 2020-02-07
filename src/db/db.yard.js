@@ -1,19 +1,22 @@
 module.exports = function (db, log) {
     return {
-        one: yardId => {
-            log.debug('read yard [%s]', yardId);
-            return db.oneOrNone('SELECT * FROM yards WHERE id = $1', yardId);
+        one: (userEmail, yardId) => {
+            log.debug('read yard', userEmail, yardId);
+            return db.oneOrNone('SELECT y.* FROM yards y INNER JOIN users u ON (u.id = y.user_id) WHERE y.id = $1 AND u.email eq $2', yardId, userEmail);
         },
-        add: yard => {
-            log.debug('insert yard', yard);
+        add: (userEmail, yard) => {
+            log.debug('insert yard', userEmail, yard);
             // return db.none({
             //     text: 'INSERT INTO yard(login, password) VALUES($1,$2)',
             //     values: [yard.login, yard.password]
             // });
         },
-        all: () => {
-            log.debug('read all yards');
+        all: userEmail => {
+            log.debug('read all yards', userEmail);
             return db.any('SELECT * FROM yards');
+        },
+        update: (userEmail, yardId, yard) => {
+            log.debug('update yard', userEmail, yardId, yard);
         }
     };
 }

@@ -1,0 +1,1 @@
+SELECT * FROM harvests WHERE hive_id = ${hive_id};

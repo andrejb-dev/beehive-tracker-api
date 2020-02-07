@@ -2,11 +2,11 @@ const controller = require('../controllers/yard.controller');
 
 module.exports.attachHandlers = (router) => {
 
-    router.route('/users/:userEmail/yards')
+    router.route('/users/:userId/yards')
         .get(controller.readAll)
         .post(controller.create);
 
-    router.route('/users/:userEmail/yards/:yardId')
+    router.route('/users/:userId/yards/:yardId')
         .get(controller.read)
         .put(controller.update);
 };

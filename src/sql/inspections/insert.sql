@@ -1,0 +1,1 @@
+INSERT INTO inspections(${this:name}) VALUES (${this:list});

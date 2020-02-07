@@ -1,7 +1,7 @@
 module.exports = function (db, log) {
     return {
         one: userEmail => {
-            log.debug('read user [%s]', userEmail);
+            log.debug('read user', userEmail);
             return db.oneOrNone('SELECT * FROM users WHERE email eq $1', userEmail);
         },
         add: user => {

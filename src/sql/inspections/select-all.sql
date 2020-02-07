@@ -1,0 +1,1 @@
+SELECT * FROM inspections WHERE hive_id = ${hive_id};

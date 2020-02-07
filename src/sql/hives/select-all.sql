@@ -1,0 +1,1 @@
+SELECT * FROM hives WHERE yard_id = ${yard_id};

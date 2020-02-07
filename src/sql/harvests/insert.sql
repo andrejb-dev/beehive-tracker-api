@@ -1,0 +1,1 @@
+INSERT INTO harvests(${this:name}) VALUES (${this:list});
