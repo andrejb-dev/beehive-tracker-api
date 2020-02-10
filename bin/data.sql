@@ -5,7 +5,7 @@ INSERT INTO public.addresses(street, city, zip_code, gps_location)
     ('Za domom', 'Nové Mesto nad Váhom', '91501', point(48.7555486,17.8103031)),
     ('U suseda', 'Šaľa', '92701', point(48.1354417,17.8917963));
 
-INSERT INTO public.environments(key)
+INSERT INTO public.environment_types(key)
 	VALUES ('urban'), ('agricultural'),	('natural');
 
 INSERT INTO public.users(name, born, email, address_id)
