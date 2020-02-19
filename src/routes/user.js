@@ -2,10 +2,11 @@ const controller = require('../controllers/user.controller');
 
 module.exports.attachHandlers = (router) => {
 
-    router.get('/users/:userId', controller.read);
+    router.route('/users/:userId')
+        .get(controller.read)
+        .put(controller.update)
+        .delete(controller.delete);
 
     router.route('/users')
-        .get(controller.readAll)
         .post(controller.create);
-
 };
