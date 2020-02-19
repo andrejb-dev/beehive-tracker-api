@@ -1,4 +1,4 @@
-var db = require('../db/db');
+const db = require('../db');
 const sql = require('../sql').hives;
 const log = require('../logger')(__filename.slice(__dirname.length + 1));
 

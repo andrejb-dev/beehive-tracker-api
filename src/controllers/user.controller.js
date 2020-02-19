@@ -1,5 +1,5 @@
-var db = require('../db');
-var sql = require('../sql').users;
+const db = require('../db');
+const sql = require('../sql').users;
 const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
 function createUser(req, res, next) {
