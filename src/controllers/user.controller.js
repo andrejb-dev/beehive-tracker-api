@@ -23,7 +23,7 @@ function createUser(req, res, next) {
 
 function readUser(req, res, next) {
     log.info('read user', req.params);
-    db.oneOrNone(sql.select, req.params.userId)
+    db.oneOrNone(sql.select, { id: req.params.userId })
         .then(user => {
             if (!user) {
                 log.debug(`user with params ${req.params} not found`);
