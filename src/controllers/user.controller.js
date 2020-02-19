@@ -4,6 +4,13 @@ const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
 function createUser(req, res, next) {
     log.info('create user', req.body);
+
+    if (!req.body || !req.body.length) {
+        log.warn('Invalid data provided', req.body);
+        res.status(400).send('Invalid data!');
+        return;
+    }
+
     db.none(sql.insert, req.body)
         .then(() => {
             res.status(201).json(req.body);
