@@ -55,7 +55,7 @@ function updateHive(req, res, next) {
 };
 
 function deleteHive(req, res, next) {
-    log.info('update inspection', req.params, req.body);
+    log.info('delete inspection', req.params, req.body);
     res.send('TBD');
 };
 
