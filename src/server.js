@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./routes');
+const apiRouter = require('./routes');
 const log = require('./logger')(__filename.slice(__dirname.length + 1));
 
 module.exports.createInstance = createServer;
@@ -14,7 +14,8 @@ function createServer() {
     server.use(express.urlencoded({ extended: true }));
     
     // attach router handlers
-    routes.attachHandlers(server);
+    server.use('/api', apiRouter);
+    // apiRoutes.attachHandlers(server);
 
     // setup general error handler
     server.use(function (err, req, res, next) {

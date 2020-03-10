@@ -1,13 +1,15 @@
-exports.attachHandlers = function attachHandlers (server) {
-    
-    require('./user').attachHandlers(server);
-    require('./hive').attachHandlers(server);
-    require('./inspection').attachHandlers(server);
-    require('./yard').attachHandlers(server);
-//    require('./yard')(server);
-    
-    server.route('/')
-        .get(function (req, res) {
-            res.render('index', { title: 'Home' });
-        });
-};
+var express = require('express');
+var router = express.Router();
+
+require('./user').attachHandlers(router);
+require('./hive').attachHandlers(router);
+require('./inspection').attachHandlers(router);
+require('./yard').attachHandlers(router);
+//    require('./yard')(router);
+
+router.route('/')
+    .get(function (req, res) {
+        res.render('index', { title: 'Home' });
+    });
+
+module.exports = router;
