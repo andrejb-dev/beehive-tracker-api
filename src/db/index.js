@@ -18,13 +18,13 @@ const initOptions = {
             const queries = new pgp.QueryFile(file);
             db.any(queries)
                 .then(res => {
-                    log.debug(`Executed script file ${file}: `, res);
+                    log.debug('Executed script file: ', file, res);
                     if (callback) {
                         callback();
                     }
                 })
                 .catch(err => {
-                    log.error(`Error executing file ${file}`, err);
+                    log.error('Error executing file: ', file, err);
                 })
         };
     }
@@ -33,7 +33,7 @@ const initOptions = {
 const pgp = pgPromise(initOptions);
 
 // Database connection details;
-const cn = {
+const cn = process.env.DATABASE_URL || {
     host: 'localhost', // 'localhost' is the default;
     port: 5432, // 5432 is the default;
     database: 'testdb',
@@ -41,10 +41,10 @@ const cn = {
     password: 'postgres'
 };
 // Create db connection and verify it
-const db = pgp(process.env.DATABASE_URL || cn);
+const db = pgp(cn);
 db.one('Select version()')
     .then(data => {
-        log.info('Connected: ', data);
+        log.info('Connected: ', cn, data);
     })
     .catch(error => {
         log.error("Error connecting to db", error);
